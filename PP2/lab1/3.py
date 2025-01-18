@@ -1,4 +1,4 @@
 x = 45
-y = "Kuanysh"
+y = " Kuanysh"
 print(type(x))
 print(type(y))
