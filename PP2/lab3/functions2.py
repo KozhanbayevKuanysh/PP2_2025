@@ -117,7 +117,7 @@ def average_imdb(movies):
 
 print(f"The average IMDB score: {average_imdb(movies)}")
 print("----------------------------------")
-############################
+###########################
 # 5 task
 def category_avg(needed_category, movies):
     sum = 0
