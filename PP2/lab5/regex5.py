@@ -1,6 +1,6 @@
 import re
 
-pattern = r"^a.*b$"
+pattern = r"a.*b$"
 
 test = ["aKT4kfdmb", "ab", "aOb", "bAba", "Adb", "adadb", "asb", "aaaabbbb", "aLW", "Hgb"]
 
