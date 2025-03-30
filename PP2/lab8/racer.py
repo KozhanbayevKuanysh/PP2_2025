@@ -106,7 +106,7 @@ while running:
             running = False
     
     coin_text = font.render(str(coin_amount), True, "black")
-    game_over_coin = font.render(f"Coins: {coin_amount}", True, "yellow") # showing number of coins in game over
+    game_over_coin = font.render(f"Coins: {coin_amount}", True, "green") # showing number of coins in game over
     screen.blit(background, (0, 0))
     screen.blit(coin_text, (315, 15)) # showing number of coins
     screen.blit(coin_img, (270, 35)) # Coin image around number of coins

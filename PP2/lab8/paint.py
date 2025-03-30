@@ -36,7 +36,7 @@ def submaterials():
     buttons_bar.blit(g, (5, 140))
     b = font.render('3 - Blue', True, 'black')
     buttons_bar.blit(b, (5, 160))
-    y = font.render('4 - White', True, 'black')
+    y = font.render('4 - Black', True, 'black')
     buttons_bar.blit(y, (5, 180))
     e = font.render('5 - Yellow', True, 'black')
     buttons_bar.blit(e, (5, 200))
@@ -89,7 +89,7 @@ class Button(GameObject):
 class Pen(GameObject):
     def __init__(self, *args, **kwargs):  # Pen(1, 2, 3, a=4) =>
         self.points: list[Point, ] = []  # [(x1, y1), (x2, y2)]
-        self.color = WHITE
+        self.color = BLACK
 
     def draw(self):
         for idx, point in enumerate(self.points[:-1]):  # range(len(self.points))
@@ -114,7 +114,7 @@ class Eraser(GameObject):
             next_point = self.points[idx + 1]
             pygame.draw.line(
                 SCREEN,
-                BLACK,
+                WHITE,
                 start_pos = (point.x, point.y),  # self.points[idx]
                 end_pos = (next_point.x, next_point.y),
                 width = 20
@@ -127,7 +127,7 @@ class Rectangle(GameObject):
     def __init__(self, start_pos, *args, **kwargs): # Rectangle(start_pos=1); Pen(start_pos=1)
         self.start_pos = Point(*start_pos)
         self.end_pos = Point(*start_pos)
-        self.color = WHITE
+        self.color = BLACK
 
     def draw(self):
         start_pos_x = min(self.start_pos.x, self.end_pos.x)  # min(self.start_pos[0], self.end_pos[0])
@@ -154,7 +154,7 @@ class Ellipse(GameObject):
     def __init__(self, start_pos, *args, **kwargs): # Rectangle(start_pos=1); Pen(start_pos=1)
         self.start_pos = Point(*start_pos)
         self.end_pos = Point(*start_pos)
-        self.color = WHITE
+        self.color = BLACK
 
     def draw(self):
         start_pos_x = min(self.start_pos.x, self.end_pos.x)  # min(self.start_pos[0], self.end_pos[0])
@@ -182,7 +182,7 @@ def main():
     game_object = GameObject()
     active_obj = game_object
     current_shape = Pen  # current_shape()
-    current_color = WHITE
+    current_color = BLACK
     line_button = Button(4, 4, 44, 44, True)
     rec_button =  Button(52, 4, 44, 44, False)
     cir_button = Button(4, 50, 44, 44, False)
@@ -193,14 +193,13 @@ def main():
     objects = []
 
     while running:
-        SCREEN.fill(BLACK)
-        buttons_bar.fill('white')
+        SCREEN.fill(WHITE)
+        buttons_bar.fill(WHITE)
         for obj in buttons:
             obj.draw()
         for obj in objects:
             obj.draw()
         submaterials()
-
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -214,7 +213,7 @@ def main():
                 elif event.key == pygame.K_3 or event.key == pygame.K_KP_3:
                     current_color = BLUE
                 elif event.key == pygame.K_4 or event.key == pygame.K_KP_4:
-                    current_color = WHITE
+                    current_color = BLACK
                 elif event.key == pygame.K_5 or event.key == pygame.K_KP_5:
                     current_color = YELLOW
                 elif event.key == pygame.K_6 or event.key == pygame.K_KP_6:
